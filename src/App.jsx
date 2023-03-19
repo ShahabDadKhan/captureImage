@@ -1,3 +1,6 @@
+// Developer Note:
+// Not in any case this is the best version of what you expected but it is what I understood by just reading the task.
+
 import { useState } from 'react'
 import React, { useRef, useEffect } from 'react';
 import './App.css'
@@ -36,14 +39,15 @@ function App() {
     // Default intensity is 1. Let's dim the light a small amount
     light.intensity = 0.7;
   
-    // Our built-in 'box' shape.
+    // Creating the cube with the medium size of 4.
     box = MeshBuilder.CreateBox("cube", { size: 4 }, scene);
   
     // Move the box upward 1/2 its height
     box.position.y = 1;
   
-    // Our built-in 'ground' shape.
-
+    // Wrraping it in the condition that if the user haven't captured tha image of the map till then cube will be of grey color instead of hiding it.
+    // As it is always better to show something to the user then to show him/her blank screen which -vely impact the user experience.
+    // Keeping user engaged on the screen is good for any website or app
     if(capturedImage){ 
       var materialCube = new BABYLON.StandardMaterial("texture1", scene);
       materialCube.diffuseTexture = new BABYLON.Texture(capturedImage, scene);
@@ -65,6 +69,7 @@ function App() {
   useEffect(()=>{
   }, [lat,lng])
 
+  // Capturing the image of the map on the click of the user
   const onButtonClick = (()=>{
     var img = new Image();
     var mapCanvas = document.querySelector('.mapboxgl-canvas');
@@ -97,6 +102,7 @@ function App() {
 
     const marker = new mapboxgl.Marker().setLngLat([lng, lat]).addTo(newMap);
 
+    // Setting a marker on the click of the user
     newMap.on("click", (e) => {
       setLng(newMap.getCenter());
       setLat(newMap.getCenter().lat.toFixed(4));
