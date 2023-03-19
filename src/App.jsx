@@ -37,7 +37,7 @@ function App() {
     light.intensity = 0.7;
   
     // Our built-in 'box' shape.
-    box = MeshBuilder.CreateBox("cube", { size: 2 }, scene);
+    box = MeshBuilder.CreateBox("cube", { size: 5 }, scene);
   
     // Move the box upward 1/2 its height
     box.position.y = 1;
