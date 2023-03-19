@@ -45,9 +45,9 @@ function App() {
     // Move the box upward 1/2 its height
     box.position.y = 1;
   
-    // Wraping it in the condition that if the user haven't captured tha image of the map till then cube will be of grey color instead of hiding it.
+    // Wrapping it in the condition that if the user haven't captured the image of the map till then cube will be of grey color instead of hiding it.
     // As it is always better to show something to the user then to show him/her blank screen which -vely impact the user experience.
-    // Keeping user engaged on the screen is good for any website or app
+    // Keeping user engaged on the screen is good for any website or app.
     if(capturedImage){ 
       var materialCube = new BABYLON.StandardMaterial("texture1", scene);
       materialCube.diffuseTexture = new BABYLON.Texture(capturedImage, scene);
@@ -55,15 +55,12 @@ function App() {
     }
   };
   
-  /**
-   * Will run on every frame render.  We are spinning the box on y-axis.
-   */
+   //  Will run on every frame render.  We are spinning the box on y-axis.
   const onRender = (scene) => {
     if (box !== undefined) {
       const deltaTimeInMillis = scene.getEngine().getDeltaTime();
   
       const rpm = 10;
-      // box.rotation.y += (rpm / 60) * Math.PI * 2 * (deltaTimeInMillis / 1000);
     }
   };
   useEffect(()=>{
@@ -102,7 +99,7 @@ function App() {
 
     const marker = new mapboxgl.Marker().setLngLat([lng, lat]).addTo(newMap);
 
-    // Setting a marker on the click of the user
+    // Setting the marker on the click of a user
     newMap.on("click", (e) => {
       setLng(newMap.getCenter());
       setLat(newMap.getCenter().lat.toFixed(4));
