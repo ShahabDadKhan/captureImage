@@ -45,7 +45,7 @@ function App() {
     // Move the box upward 1/2 its height
     box.position.y = 1;
   
-    // Wrraping it in the condition that if the user haven't captured tha image of the map till then cube will be of grey color instead of hiding it.
+    // Wraping it in the condition that if the user haven't captured tha image of the map till then cube will be of grey color instead of hiding it.
     // As it is always better to show something to the user then to show him/her blank screen which -vely impact the user experience.
     // Keeping user engaged on the screen is good for any website or app
     if(capturedImage){ 
